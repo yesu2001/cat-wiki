@@ -4,16 +4,6 @@ import styles from './layout.module.css'
 
 function Banner1({data}) {
   const [search,setSearch] = useState('');
-  const [breeds,setBreeds] = useState(data.map(cat => cat.name));
-  var patterns = []
-  
-  useEffect(() => {
-    patterns.push(breeds.filter(breed => breed.includes(search)))
-  },[search])
-
-  const handleClick = () => {
-    console.log(search);
-  }
 
   return (
     <div className={styles.banner1}>
@@ -21,12 +11,12 @@ function Banner1({data}) {
         <p>Get to know more about <br/>your cat breed</p>
         <div className={styles.search}>
             <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder='Enter your breed'/>
-            <img onClick={handleClick} src="https://img.icons8.com/ios-glyphs/30/null/search--v1.png"/>
+            <img src="https://img.icons8.com/ios-glyphs/30/null/search--v1.png" alt="search icon"/>
         </div>
         {
           search && <ul className={styles.lists}>
             {
-             patterns && patterns.map((pattern, index) => <li>{pattern}</li>) 
+             patterns && patterns.map((pattern, index) => <li key={index}>{pattern}</li>) 
             }
           </ul>
         }
