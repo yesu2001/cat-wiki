@@ -9,7 +9,7 @@ export default function CatInfo({result}) {
         <div className={styles.catInfo}>
             <Header/>
             <div className={styles.catData}>
-                <Image width={300} height={300} src={result.data[0].image.url} alt='' style={{borderRadius:"24px"}}/>
+                <Image width={300} height={300} src={result.data[0].image?.url} alt='' style={{borderRadius:"24px"}}/>
                 <div className={styles.catDesc}>
                     <h2 style={{fontSize:'36px',fontWeight:'600',marginBottom:'10px'}}>{result.data[0].name}</h2>
                     <p style={{fontSize:'18px',lineHeight:'22px',margin:'20px 0'}}>{result.data[0].description}</p>
